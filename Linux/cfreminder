@@ -1,0 +1,121 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+from gi.repository import Gtk
+from gi.repository import AppIndicator3 as appindicator
+import requests as req
+import json
+from gi.repository import Notify as notify
+from gi.repository import GLib
+from math import ceil
+import webbrowser
+## Conf
+updateDelay = 300000
+
+
+
+def close(source):
+    notify.uninit()
+    Gtk.main_quit()
+
+
+def timeCal(time):
+    if(time >= 86400):
+        return str(time//86400) + " Days"
+    if(time > 0):
+        return "{:02d}".format(time//3600)+":{:02d}".format((time//60) % 60)+":{:02d}".format(time % 60)
+    return "Started"
+
+
+stime = 0
+Conts = []
+Notifys = {}
+def OpenContest(item,id,remTime):
+    global stime
+    if(remTime-stime<=0):
+        webbrowser.open("https://codeforces.com/contests/"+str(id))
+    else:
+        Notifys[id] = not Notifys[id]
+def Update(source):
+    global menu, Conts, stime, updateDelay
+    stime = 0
+    statstr = "Refresh"
+    resp = None
+    Conts.clear()
+    try:
+        resp = json.loads(
+            req.get('https://codeforces.com/api/contest.list').text)
+    except:
+        statstr = "Can`t connect,Click to retry"
+
+    for item in menu.get_children():
+        menu.remove(item)
+    contest = 0
+
+    rfshBtn = Gtk.MenuItem(statstr)
+    rfshBtn.connect('activate', Update)
+    menu.append(rfshBtn)
+    rfshBtn.show()
+
+    sep = Gtk.SeparatorMenuItem.new()
+    menu.append(sep)
+    sep.show()
+
+    while(resp != None and (resp['result'][contest]['phase'] == 'BEFORE' or resp['result'][contest]['phase'] == 'CODING')):
+        remTime = (-resp['result'][contest]['relativeTimeSeconds'])
+        name = resp['result'][contest]['name']
+        cid = resp['result'][contest]['id']
+        if(not (cid in Notifys)):
+            Notifys[cid] = True
+  
+        contestItem = Gtk.MenuItem(name + " | " + timeCal(remTime))
+        
+        
+        contestItem.connect('activate',OpenContest,cid,remTime)
+        
+        if(Notifys[cid] and remTime <= 3600 and remTime > 0):
+            notify.Notification.new(
+                "Attention", "Only "+str(ceil(remTime/60))+" Minutes To Contest: \n" + name, None).show()
+        menu.append(contestItem)
+
+        Conts.append([cid, name, remTime, contestItem])
+        contestItem.show()
+        contest += 1
+
+    sep = Gtk.SeparatorMenuItem.new()
+    menu.append(sep)
+    sep.show()
+
+    exitBtn = Gtk.MenuItem("Exit")
+    exitBtn.connect('activate', close)
+    menu.append(exitBtn)
+    exitBtn.show()
+
+    GLib.timeout_add(updateDelay, Update, None)
+    return
+
+
+def ShowContests():
+    global Conts, stime
+    stime += 1
+    for contest in Conts:
+        contest[3].set_label(contest[1] + " | " + timeCal(contest[2]-stime) + ("" if Notifys[contest[0]] else " | Muted"))
+        if(contest[2]-stime == 0 and Notifys[contest[0]]):
+            notify.Notification.new(
+                "Attention", "\""+contest[1] + "\" Started!", None).show()
+    GLib.timeout_add(1000, ShowContests)
+    return
+
+
+APPINDICATOR_ID = "CodeForces Reminder"
+notify.init(APPINDICATOR_ID)
+ind = appindicator.Indicator.new(
+    APPINDICATOR_ID, '/usr/lib/cfreminder/Icon.png',
+    appindicator.IndicatorCategory.SYSTEM_SERVICES)
+ind.set_status(appindicator.IndicatorStatus.ACTIVE)
+ind.set_title(APPINDICATOR_ID)
+menu = Gtk.Menu()
+Update(None)
+ShowContests()
+ind.set_menu(menu)
+Gtk.main()

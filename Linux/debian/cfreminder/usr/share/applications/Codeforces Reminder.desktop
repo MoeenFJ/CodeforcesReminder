@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.3
+Type=Application
+Name=Codforces Reminder
+Comment=Codforces Contest Reminder
+# myscript should wait for user input at the end, else the terminal
+# window will disappear immediately.
+Exec=cfreminder
+Icon=/usr/lib/cfreminder/Icon.png
+Categories=Utility;
+X-GNOME-autostart-enabled=true
+Name[en_US]=Codeforces Reminder

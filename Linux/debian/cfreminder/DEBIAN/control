@@ -1,0 +1,9 @@
+Package: cfreminder
+Version: 1.3
+Architecture: all
+Maintainer: Moeen Farhadi, <moeenfarhadi@gmail.com>
+Installed-Size: 27
+Depends: python3-gi, python3-requests
+Section: utils
+Priority: optional
+Description: Codeforces Contest Reminder
