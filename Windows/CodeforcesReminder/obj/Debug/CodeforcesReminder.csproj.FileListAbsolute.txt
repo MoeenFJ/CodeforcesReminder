@@ -1,0 +1,22 @@
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\CodeforcesReminder.exe.config
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.csprojResolveAssemblyReference.cache
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.Properties.Resources.resources
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.csproj.GenerateResource.Cache
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\CodeforcesReminder.exe
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\CodeforcesReminder.pdb
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.exe
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.pdb
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\Newtonsoft.Json.dll
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\Newtonsoft.Json.xml
+\\TMGSERVER\Datacenter\Programming\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.Settings.resources
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\Codeforces Reminder.exe.config
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\Codeforces Reminder.exe
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\Codeforces Reminder.pdb
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.csprojResolveAssemblyReference.cache
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.Properties.Resources.resources
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.Settings.resources
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\CodeforcesReminder.csproj.GenerateResource.Cache
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\Codeforces Reminder.exe
+C:\Users\Moeen\Desktop\TMGWebSite\CodeforcesReminder\CodeforcesReminder\obj\Debug\Codeforces Reminder.pdb
